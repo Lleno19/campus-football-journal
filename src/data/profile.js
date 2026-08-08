@@ -1,0 +1,153 @@
+const asset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+
+const profile = {
+  nickname: 'Lleno',
+  number: '19',
+  position: 'Defensive Midfielder / ??',
+  startedPlaying: '2016',
+  reason: '??????????????',
+  hero: {
+    eyebrow: 'PLAY WITH HEART',
+    title: 'Campus Football Journal',
+    subtitle: '??????',
+    cta: 'EXPLORE THE GALLERY',
+  },
+  intro: {
+    en: 'Since 2016, football has been part of my campus life.',
+    zh: '? 2016 ???????????????????',
+    body: 'I play as a defensive midfielder ? learning, connecting, and enjoying the game with the people around me.',
+    bodyZh: '????????????????????????????????',
+  },
+  styleTags: [
+    { en: 'Ball Control', zh: '??' },
+    { en: 'Defensive Awareness', zh: '????' },
+    { en: 'Free Kick', zh: '???' },
+    { en: 'Penalty', zh: '??' },
+    { en: 'Team Play', zh: '????' },
+    { en: 'Communication', zh: '????' },
+  ],
+  videos: [
+    {
+      id: 'penalty',
+      src: asset('/media/videos/penalty-shootout.mp4'),
+      title: 'Penalty Shootout',
+      titleZh: '????',
+      poster: asset('/media/photos/IMG20250322225211.jpg'),
+      position: '50% 50%',
+    },
+    {
+      id: 'free-kick',
+      src: asset('/media/videos/free-kick-moment.mp4'),
+      title: 'Free Kick Moment',
+      titleZh: '?????',
+      poster: asset('/media/photos/IMG_20260526_110154.jpg'),
+      position: '52% 54%',
+    },
+  ],
+  matchDay: [
+    {
+      videoId: 'penalty',
+      kicker: 'NIGHT SESSION',
+      title: 'Penalty Shootout',
+      titleZh: '????',
+      body: 'A focused moment under the lights.',
+      bodyZh: '?????????',
+    },
+    {
+      videoId: 'free-kick',
+      kicker: 'CAMPUS FIELD',
+      title: 'Free Kick Moment',
+      titleZh: '?????',
+      body: 'A ball, an open field, and the next touch.',
+      bodyZh: '??????????????????',
+    },
+  ],
+  galleryGroups: [
+    {
+      id: 'moments',
+      label: 'My Moments',
+      labelZh: '????',
+      images: [
+        { src: asset('/media/photos/IMG_20260526_000734.jpg'), alt: 'Player controlling a ball on a campus field', focalPosition: '50% 52%' },
+        { src: asset('/media/photos/IMG_20260526_110154.jpg'), alt: 'Player running with the ball on a campus field', focalPosition: '50% 50%' },
+        { src: asset('/media/photos/mmexport1779723731332.jpg'), alt: 'Player striking a ball near the goal', focalPosition: '50% 50%' },
+        { src: asset('/media/photos/mmexport1779723772584.jpg'), alt: 'Player wearing number 19 standing with a ball', focalPosition: '50% 48%' },
+        { src: asset('/media/photos/mmexport1779723791868.jpg'), alt: 'Player holding a football on a campus pitch', focalPosition: '50% 44%' },
+      ],
+    },
+    {
+      id: 'team',
+      label: 'My Team',
+      labelZh: '????',
+      images: [
+        { src: asset('/media/photos/-6ea14c8d06105986.jpg'), alt: 'Campus Team posing with a football banner', focalPosition: '50% 50%' },
+        { src: asset('/media/photos/mmexport1735383826473.jpg'), alt: 'Teammates gathering on a lit football field', focalPosition: '50% 50%' },
+        { src: asset('/media/photos/mmexport1779723870830.jpg'), alt: 'Campus Team gathered on the field', focalPosition: '50% 50%' },
+        { src: asset('/media/photos/mmexport1727781156244.jpg'), alt: 'Two teammates standing together with a football', focalPosition: '50% 50%' },
+        { src: asset('/media/photos/SAVE_20220127_231458.jpg'), alt: 'Two campus football teammates posing together', focalPosition: '50% 50%' },
+      ],
+    },
+    {
+      id: 'after-match',
+      label: 'After the Match',
+      labelZh: '????',
+      images: [
+        { src: asset('/media/photos/IMG20250528232602.jpg'), alt: 'Teammates resting together after football', focalPosition: '50% 50%' },
+        { src: asset('/media/photos/IMG20250413202035.jpg'), alt: 'Teammates relaxing together on the field', focalPosition: '50% 50%' },
+        { src: asset('/media/photos/mmexport1696509847898.jpg'), alt: 'Player walking with a ball at sunset', focalPosition: '50% 50%' },
+        { src: asset('/media/photos/IMG20250322225211.jpg'), alt: 'Friends resting together after a night football session', focalPosition: '50% 50%' },
+        { src: asset('/media/photos/IMG_20250420_193630.jpg'), alt: 'A football moment in warm evening light', focalPosition: '50% 45%' },
+      ],
+    },
+  ],
+  journal: [
+    {
+      year: '2016',
+      label: 'BEGINNING',
+      title: 'Started playing football',
+      titleZh: '????',
+      body: 'The first line in this journal.',
+      bodyZh: '???????????',
+    },
+    {
+      year: '',
+      label: 'TRAINING',
+      title: 'Campus training',
+      titleZh: '????',
+      body: 'A place to keep adding real practice memories.',
+      bodyZh: '???????????',
+    },
+    {
+      year: '',
+      label: 'FRIENDS',
+      title: 'Playing with friends',
+      titleZh: '?????',
+      body: 'Football is fun, and it brings people together.',
+      bodyZh: '???????????????',
+    },
+    {
+      year: '',
+      label: 'MATCH DAY',
+      title: 'Match-day moments',
+      titleZh: '???',
+      body: 'Keep this entry editable as the journal grows.',
+      bodyZh: '?????????????????',
+    },
+    {
+      year: '',
+      label: 'AFTER',
+      title: 'Conversations after training',
+      titleZh: '????????',
+      body: 'The game continues in the memories after the field.',
+      bodyZh: '?????????????????',
+    },
+  ],
+  closing: {
+    image: asset('/media/photos/IMG20250528232602.jpg'),
+    imageAlt: 'Teammates resting together after a night football session',
+    title: 'FOOTBALL STAYS WITH ME',
+    titleZh: '???????????',
+  },
+};
+
+export default profile;
