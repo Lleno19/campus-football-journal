@@ -30,6 +30,7 @@ const profile = {
     {
       id: 'penalty',
       src: asset('/media/videos/penalty-shootout.mp4'),
+      heroSrc: asset('/media/videos/hero-penalty.mp4'),
       title: 'Penalty Shootout',
       titleZh: '????',
       poster: asset('/media/photos/IMG20250322225211.jpg'),
@@ -38,6 +39,7 @@ const profile = {
     {
       id: 'free-kick',
       src: asset('/media/videos/free-kick-moment.mp4'),
+      heroSrc: asset('/media/videos/hero-free-kick.mp4'),
       title: 'Free Kick Moment',
       titleZh: '?????',
       poster: asset('/media/photos/IMG_20260526_110154.jpg'),

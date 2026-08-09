@@ -1,5 +1,12 @@
+import { useState } from 'react';
+
 export default function MatchDay({ matchDay, videos }) {
   const getVideo = (id) => videos.find((video) => video.id === id);
+  const [loadedVideos, setLoadedVideos] = useState(() => new Set());
+
+  const loadVideo = (videoId) => {
+    setLoadedVideos((current) => new Set(current).add(videoId));
+  };
 
   return (
     <section className="match-section section-block" id="match-day">
@@ -9,9 +16,28 @@ export default function MatchDay({ matchDay, videos }) {
         <div className="match-grid">
           {matchDay.map((moment, index) => {
             const video = getVideo(moment.videoId);
+            const isLoaded = loadedVideos.has(moment.videoId);
             return (
               <article className="match-card" key={moment.videoId}>
-                <video src={video.src} poster={video.poster} muted loop playsInline autoPlay preload="none" style={{ objectPosition: video.position }} />
+                {isLoaded ? (
+                  <video
+                    autoPlay
+                    controls
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    src={video.src}
+                    style={{ objectPosition: video.position }}
+                  />
+                ) : (
+                  <>
+                    <img alt="" className="match-card-poster" loading="lazy" src={video.poster} />
+                    <button className="match-card-play" type="button" onClick={() => loadVideo(moment.videoId)}>
+                      Play full video
+                    </button>
+                  </>
+                )}
                 <div className="match-card-shade" />
                 <div className="match-card-content">
                   <p>{moment.kicker} <span>0{index + 1}</span></p>

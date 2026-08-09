@@ -1,4 +1,4 @@
-﻿import { useEffect, useId, useRef } from 'react';
+import { useEffect, useId, useRef } from 'react';
 import { gsap } from 'gsap';
 
 const WORDS = [
@@ -21,7 +21,7 @@ function TitleWords({ className, testId }) {
   ));
 }
 
-export default function MaskedHeading({ src, poster, reducedMotion = false }) {
+export default function MaskedHeading({ poster, reducedMotion = false }) {
   const rootRef = useRef(null);
   const maskId = `masked-heading-${useId().replace(/:/g, '')}`;
 
@@ -56,20 +56,17 @@ export default function MaskedHeading({ src, poster, reducedMotion = false }) {
               <TitleWords className="masked-heading-clip-word" />
             </clipPath>
           </defs>
-          <foreignObject clipPath={`url(#${maskId})`} height="624" width="1200" x="0" y="0">
-            <video
-              aria-hidden="true"
-              autoPlay={!reducedMotion}
-              className="masked-heading-media"
-              data-testid="masked-heading-media"
-              loop={!reducedMotion}
-              muted
-              playsInline
-              poster={poster}
-              preload={reducedMotion ? 'none' : 'auto'}
-              src={src}
-            />
-          </foreignObject>
+          <image
+            aria-hidden="true"
+            className="masked-heading-media"
+            clipPath={`url(#${maskId})`}
+            height="624"
+            href={poster}
+            preserveAspectRatio="xMidYMid slice"
+            width="1200"
+            x="0"
+            y="0"
+          />
           <g className="masked-heading-outline">
             <TitleWords className="masked-heading-word" testId="masked-heading-word" />
           </g>

@@ -371,6 +371,7 @@ export default function PillNav({
   useEffect(() => {
     const menu = mobileMenuRef.current;
     if (!menu) return;
+    if (isMobileMenuOpen) menu.style.visibility = 'visible';
     gsap.to(menu, {
       autoAlpha: isMobileMenuOpen ? 1 : 0,
       y: isMobileMenuOpen ? 0 : -8,

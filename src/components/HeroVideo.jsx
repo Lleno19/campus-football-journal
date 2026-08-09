@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import MaskedHeading from './MaskedHeading';
 
 function useReducedMotion() {
@@ -21,7 +21,6 @@ export default function HeroVideo({ profile }) {
   const [needsPlay, setNeedsPlay] = useState(false);
   const reducedMotion = useReducedMotion();
   const activeVideo = profile.videos[activeIndex];
-  const videoKey = useMemo(() => profile.videos.map((video) => video.id).join('-'), [profile.videos]);
 
   useEffect(() => {
     if (reducedMotion) return undefined;
@@ -29,8 +28,7 @@ export default function HeroVideo({ profile }) {
       setActiveIndex((current) => (current + 1) % profile.videos.length);
     }, 7000);
     return () => window.clearInterval(timer);
-  }, [profile.videos.length, reducedMotion, videoKey]);
-
+  }, [profile.videos.length, reducedMotion]);
 
   const scrollToGallery = () => {
     document.getElementById('gallery')?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
@@ -39,29 +37,27 @@ export default function HeroVideo({ profile }) {
   return (
     <section className="hero" id="top" aria-label="Campus Football Journal introduction">
       <div className="hero-media" aria-hidden="true">
-        {profile.videos.map((video, index) => (
-          <video
-            className={index === activeIndex ? 'hero-video is-active' : 'hero-video'}
-            key={video.id}
-            src={video.src}
-            poster={video.poster}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload={index === activeIndex ? 'auto' : 'metadata'}
-            style={{ objectPosition: video.position }}
-            onError={() => setNeedsPlay(true)}
-            onPlay={() => setNeedsPlay(false)}
-          />
-        ))}
+        <video
+          className="hero-video is-active"
+          key={activeVideo.id}
+          src={activeVideo.heroSrc ?? activeVideo.src}
+          poster={activeVideo.poster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          style={{ objectPosition: activeVideo.position }}
+          onError={() => setNeedsPlay(true)}
+          onPlay={() => setNeedsPlay(false)}
+        />
       </div>
       <div className="hero-shade" />
       <div className="hero-grid" aria-hidden="true" />
       <div className="hero-content section-shell">
         <div className="hero-copy">
           <p className="eyebrow"><span className="pulse-dot" /> {profile.hero.eyebrow}</p>
-          <MaskedHeading src={activeVideo.src} poster={activeVideo.poster} reducedMotion={reducedMotion} />
+          <MaskedHeading poster={activeVideo.poster} reducedMotion={reducedMotion} />
           <p className="hero-subtitle">{profile.hero.subtitle}</p>
           <div className="hero-meta" aria-label="Player profile">
             <span>{profile.nickname} <b>/ No.{profile.number}</b></span>
@@ -81,7 +77,7 @@ export default function HeroVideo({ profile }) {
       </div>
       {needsPlay && (
         <button className="hero-play-fallback" type="button" onClick={() => setNeedsPlay(false)}>
-          Video ready {'\u00b7'} tap to continue
+          Video ready <span aria-hidden="true">·</span> tap to continue
         </button>
       )}
       <div className="hero-index" aria-hidden="true">19</div>

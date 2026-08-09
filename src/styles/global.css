@@ -109,6 +109,9 @@ h2 em { color: var(--signal); font-style: normal; }
 .match-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .match-card { min-height: 480px; position: relative; isolation: isolate; overflow: hidden; background: #0c1211; }
 .match-card video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.72) contrast(1.05); transition: transform 800ms ease; }
+.match-card-poster { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.72) contrast(1.05); }
+.match-card-play { position: absolute; z-index: 3; top: 28px; right: 28px; border: 1px solid rgba(184, 247, 90, 0.7); border-radius: 999px; padding: 10px 15px; color: #07100a; background: var(--signal); font: inherit; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2); }
+.match-card-play:hover { background: #e2ffb7; transform: translateY(-2px); }
 .match-card:hover video { transform: scale(1.045); }
 .match-card-shade { position: absolute; inset: 0; z-index: 1; background: linear-gradient(0deg, rgba(1, 6, 6, 0.94), rgba(4, 9, 9, 0.06) 70%); }
 .match-card-content { position: absolute; z-index: 2; inset: auto 28px 28px; }
