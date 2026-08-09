@@ -21,6 +21,21 @@ describe('profile data', () => {
     expect(profile.galleryGroups[2].images.at(-1).src).toBe('/media/photos/IMG_20250420_193630.jpg');
   });
 
+  it('uses a matching extracted poster for each lightweight hero video', () => {
+    expect(profile.videos).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        id: 'penalty',
+        heroSrc: '/media/videos/hero-penalty.mp4',
+        poster: '/media/posters/hero-penalty.jpg',
+      }),
+      expect.objectContaining({
+        id: 'free-kick',
+        heroSrc: '/media/videos/hero-free-kick.mp4',
+        poster: '/media/posters/hero-free-kick.jpg',
+      }),
+    ]));
+  });
+
   it('does not ship placeholder question marks in user-facing copy', () => {
     const userFacingCopy = collectStrings(profile).filter((text) => !text.startsWith('/media/'));
     expect(userFacingCopy.filter((text) => text.includes('?'))).toEqual([]);

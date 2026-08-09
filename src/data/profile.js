@@ -33,7 +33,7 @@ const profile = {
       heroSrc: asset('/media/videos/hero-penalty.mp4'),
       title: 'Penalty Shootout',
       titleZh: '点球大战',
-      poster: asset('/media/photos/IMG20250322225211.jpg'),
+      poster: asset('/media/posters/hero-penalty.jpg'),
       position: '50% 50%',
     },
     {
@@ -42,7 +42,7 @@ const profile = {
       heroSrc: asset('/media/videos/hero-free-kick.mp4'),
       title: 'Free Kick Moment',
       titleZh: '任意球瞬间',
-      poster: asset('/media/photos/IMG_20260526_110154.jpg'),
+      poster: asset('/media/posters/hero-free-kick.jpg'),
       position: '52% 54%',
     },
   ],
